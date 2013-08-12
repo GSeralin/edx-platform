@@ -5,8 +5,9 @@
 ## variables in the global context, so we load those libraries with requirejs
 ## and attach them to the global context manually.
 define(["jquery", "youtube", "mathjax", "codemirror", "tinymce", "jquery.tinymce", "utility"],
-       function($, YT, MathJax, CodeMirror, utility, tinymce) {
+       function($, YT, MathJax, CodeMirror, tinymce) {
     window.$ = $;
+    window.YT = YT;
     window.MathJax = MathJax;
     window.CodeMirror = CodeMirror;
     window.RequireJS = {
