@@ -11,7 +11,7 @@ from xmodule.modulestore import Location
 from xmodule.modulestore.exceptions import ItemNotFoundError, InsufficientSpecificationError, InvalidLocationError
 
 from xblock.core import XBlock
-from xblock.fields import Scope, String, Integer, Float, List
+from xblock.fields import Scope, ScopeIds, String, Integer, Float, List
 from xblock.fragment import Fragment
 from xblock.runtime import Runtime
 from xmodule.modulestore.locator import BlockUsageLocator
@@ -576,15 +576,31 @@ class XModuleDescriptor(XModuleFields, HTMLSnippet, ResourceTemplates, XBlock):
         org and course are optional strings that will be used in the generated
             module's url identifiers
         """
+        node = etree.fromstring(xml_data)
         class_ = system.mixologist.mix(XModuleDescriptor.load_class(
-            etree.fromstring(xml_data).tag,
+            node.tag,
             default_class
         ))
         # leave next line, commented out - useful for low-level debugging
         # log.debug('[XModuleDescriptor.load_from_xml] tag=%s, class_=%s' % (
         #        etree.fromstring(xml_data).tag,class_))
 
-        return class_.from_xml(xml_data, system, org, course)
+        url_name = node.get('url_name', node.get('slug'))
+        location = Location('i4x', org, course, node.tag, url_name)
+
+        scope_ids = ScopeIds(None, location.category, location, location)
+        xblock = class_.parse_xml(node, system, scope_ids)
+        return xblock
+
+    @classmethod
+    def parse_xml(cls, node, runtime, keys):
+        """
+        Interpret the parsed XML in `node`, creating an XModuleDescriptor.
+        """
+        xml = etree.tostring(node)
+        # TODO: change from_xml to not take org and course, it can use self.system.
+        block = cls.from_xml(xml, runtime, runtime.org, runtime.course)
+        return block
 
     @classmethod
     def from_xml(cls, xml_data, system, org=None, course=None):
@@ -768,7 +784,9 @@ class DescriptorSystem(Runtime):
                that you're about to re-raise---let the caller track them.
         """
 
-        super(DescriptorSystem, self).__init__(**kwargs)
+        # Right now, usage_store is unused, and field_data is always supplanted
+        # with an explicit field_data during construct_xblock, so None's suffice.
+        super(DescriptorSystem, self).__init__(usage_store=None, field_data=None, **kwargs)
 
         self.load_item = load_item
         self.resources_fs = resources_fs
@@ -890,7 +908,10 @@ class ModuleSystem(Runtime):
             not to allow the execution of unsafe, unsandboxed code.
 
         '''
-        super(ModuleSystem, self).__init__(**kwargs)
+
+        # Right now, usage_store is unused, and field_data is always supplanted
+        # with an explicit field_data during construct_xblock, so None's suffice.
+        super(ModuleSystem, self).__init__(usage_store=None, field_data=None, **kwargs)
 
         self.ajax_url = ajax_url
         self.xqueue = xqueue
