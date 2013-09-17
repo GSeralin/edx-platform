@@ -537,8 +537,8 @@ class XModuleDescriptor(XModuleFields, HTMLSnippet, ResourceTemplates, XBlock):
         module = system.construct_xblock_from_class(
             self.module_class,
             descriptor=self,
-            field_data=system.xmodule_field_data(self),
             scope_ids=self.scope_ids,
+            field_data=system.xmodule_field_data(self),
         )
         module.save()
         return module
