@@ -19,6 +19,7 @@ from xmodule.contentstore.django import contentstore
 from xmodule.modulestore.django import modulestore
 from xmodule.modulestore.xml_importer import import_from_xml
 
+
 class AssetsTestCase(CourseTestCase):
     def setUp(self):
         super(AssetsTestCase, self).setUp()
@@ -49,7 +50,7 @@ class AssetsToyCourseTestCase(CourseTestCase):
 
         resp = self.client.get(url)
         # Test a small portion of the asset data passed to the client.
-        self.assertContains(resp, "new CMS.Models.AssetCollection([{")
+        self.assertContains(resp, "new AssetCollection([{")
         self.assertContains(resp, "/c4x/edX/toy/asset/handouts_sample_handout.txt")
 
 

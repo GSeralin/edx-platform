@@ -31,7 +31,7 @@
   <body class="<%block name='bodyclass'></%block> hide-wip">
 <script type="text/javascript">
 var require = {
-    baseUrl: "/static",
+    baseUrl: "/static/${REVISION}",
     paths: {
         "domReady": "js/vendor/domReady",
         "gettext": "/i18n",
@@ -138,9 +138,9 @@ var require = {
     // we need "datepair" because it dynamically modifies the page when it is loaded -- yuck!
 };
 </script>
-<script type="text/javascript" src="/static/js/vendor/require.js"></script>
-<script type="text/javascript" src="/static/coffee/src/logger.js"></script>
-<script type="text/javascript" src="/static/coffee/src/ajax_prefix.js"></script>
+<script type="text/javascript" src="${static.url("js/vendor/require.js")}"></script>
+<script type="text/javascript" src="${static.url("coffee/src/logger.js")}"></script>
+<script type="text/javascript" src="${static.url("coffee/src/ajax_prefix.js")}"></script>
 
 ## js templates
 <script id="system-feedback-tpl" type="text/template">

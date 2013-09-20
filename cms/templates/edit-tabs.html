@@ -1,6 +1,9 @@
 <%inherit file="base.html" />
-<%! from django.utils.translation import ugettext as _ %>
-<%! from django.core.urlresolvers import reverse %>
+<%namespace name='static' file='static_content.html'/>
+<%!
+  from django.utils.translation import ugettext as _
+  from django.core.urlresolvers import reverse
+%>
 <%block name="title">Static Pages</%block>
 <%block name="bodyclass">is-signedin course pages static-pages</%block>
 
@@ -74,7 +77,7 @@ require(["coffee/src/views/tabs", "coffee/src/models/module"], function(TabsEdit
 <div class="content-modal" id="preview-lms-staticpages">
   <h3 class="title">${_("How Static Pages are Used in Your Course")}</h3>
   <figure>
-    <img src="/static/img/preview-lms-staticpages.png" alt="${_('Preview of how Static Pages are used in your course')}" />
+    <img src="${static.url("img/preview-lms-staticpages.png")}" alt="${_('Preview of how Static Pages are used in your course')}" />
     <figcaption class="description">${_("These pages will be presented in your course's main navigation alongside Courseware, Course Info, Discussion, etc.")}</figcaption>
   </figure>
 
