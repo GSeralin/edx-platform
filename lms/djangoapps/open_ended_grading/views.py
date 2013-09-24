@@ -30,6 +30,7 @@ from mitxmako.shortcuts import render_to_string
 log = logging.getLogger(__name__)
 
 system = ModuleSystem(
+    static_url='/static',
     ajax_url=None,
     track_function=None,
     get_module=None,

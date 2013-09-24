@@ -194,6 +194,7 @@ class TestPeerGradingService(ModuleStoreTestCase, LoginEnrollmentTestCase):
         field_data = DictFieldData({'data': "<peergrading/>", 'location': location, 'category':'peergrading'})
         self.mock_service = peer_grading_service.MockPeerGradingService()
         self.system = ModuleSystem(
+            static_url=settings.STATIC_URL,
             ajax_url=location,
             track_function=None,
             get_module=None,
