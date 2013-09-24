@@ -26,11 +26,6 @@ assets.url = "${update_asset_callback_url}";
 var assetsView = new AssetsView({collection: assets, el: $('#asset_table_body')});
 var $modalCover = $(".modal-cover");
 
-domReady(function() {
-    $('.uploads .upload-button').bind('click', showUploadModal);
-    $('.upload-modal .close-button').bind('click', hideModal);
-    $('.upload-modal .choose-file-button').bind('click', showFileSelectionMenu);
-});
 
 function hideModal(e) {
     if (e) {
@@ -125,6 +120,12 @@ var displayFinishedUpload = function (resp) {
 
     assetsView.addAsset(new AssetModel(asset));
 };
+
+domReady(function() {
+    $('.uploads .upload-button').bind('click', showUploadModal);
+    $('.upload-modal .close-button').bind('click', hideModal);
+    $('.upload-modal .choose-file-button').bind('click', showFileSelectionMenu);
+});
 
     }); // end of require()
     </script>

@@ -7,7 +7,7 @@ import requests
 import string
 import random
 import os
-from nose.tools import assert_equal, assert_not_equal # pylint: disable=E0611
+from nose.tools import assert_equal, assert_not_equal  # pylint: disable=E0611
 
 
 TEST_ROOT = settings.COMMON_TEST_DATA_ROOT
