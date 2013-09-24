@@ -63,9 +63,9 @@ define(["backbone", "underscore", "underscore.string", "jquery", "gettext", "js/
                 onSuccess: function(response) {
                     var options = {};
                     if(!that.model.get('name')) {
-                        options.name = response.displayname;
+                        options.name = response.asset.displayname;
                     }
-                    options.asset_path = response.url;
+                    options.asset_path = response.asset.url;
                     that.model.set(options);
                 }
             });
