@@ -171,6 +171,9 @@ MITX_FEATURES = {
 
     # Toggle storing detailed billing information
     'STORE_BILLING_INFO': False,
+
+    # Toggle allowing for large grade downloads
+    'MAX_ENROLLMENT_INSTR_BUTTONS': 500,
 }
 
 # Used for A/B testing
