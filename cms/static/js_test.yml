@@ -58,7 +58,6 @@ src_paths:
 # Paths to spec (test) JavaScript files
 spec_paths:
     - coffee/spec/main.js
-    - coffee/spec/helpers.js
     - coffee/spec
 
 # Paths to fixture files (optional)

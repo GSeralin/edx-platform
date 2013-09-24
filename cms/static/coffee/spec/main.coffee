@@ -121,8 +121,10 @@ requirejs.config({
     }
 });
 
+jasmine.getFixtures().fixturesPath += 'coffee/fixtures'
+
 define([
-    "coffee/spec/main_spec", "coffee/spec/helpers",
+    "coffee/spec/main_spec",
 
     "coffee/spec/models/course_spec", "coffee/spec/models/metadata_spec",
     "coffee/spec/models/module_spec", "coffee/spec/models/section_spec",
