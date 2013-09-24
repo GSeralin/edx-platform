@@ -140,6 +140,11 @@ var intervalID = setInterval(function() {
 
 
 @world.absorb
+def wait_for_prompt_shown():
+    wait_for_present(".wrapper-prompt.is-shown")
+
+
+@world.absorb
 def visit(url):
     world.browser.visit(django_url(url))
     wait_for_requirejs()
@@ -164,6 +169,7 @@ def is_css_not_present(css_selector, wait_time=5):
         raise
     finally:
         world.browser.driver.implicitly_wait(world.IMPLICIT_WAIT)
+
 
 @world.absorb
 def css_has_text(css_selector, text, index=0):
