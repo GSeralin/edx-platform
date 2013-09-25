@@ -9,7 +9,9 @@ var require = {
         "backbone": "xmodule_js/common_static/js/vendor/backbone-min",
         "backbone.associations": "xmodule_js/common_static/js/vendor/backbone-associations-min",
         "jquery.timepicker": "xmodule_js/common_static/js/vendor/timepicker/jquery.timepicker",
-        "jquery.leanmodal": "xmodule_js/common_static/js/vendor/jquery.leanModal.min",
+        "jquery.leanModal": "xmodule_js/common_static/js/vendor/jquery.leanModal.min",
+        "jquery.scrollTo": "xmodule_js/common_static/js/vendor/jquery.scrollTo-1.4.2-min",
+        "jquery.flot": "xmodule_js/common_static/js/vendor/flot/jquery.flot.min",
         "jquery.form": "xmodule_js/common_static/js/vendor/jquery.form",
         "jquery.inputnumber": "xmodule_js/common_static/js/vendor/html5-input-polyfills/number-polyfill",
         "sinon": "xmodule_js/common_static/js/vendor/sinon-1.7.1",
@@ -34,13 +36,21 @@ var require = {
             deps: ["jquery"],
             exports: "jQuery.fn.inputNumber"
         },
-        "jquery.leanmodal": {
+        "jquery.leanModal": {
             deps: ["jquery"],
             exports: "jQuery.fn.leanModal"
         },
         "jquery.cookie": {
             deps: ["jquery"],
             exports: "jQuery.fn.cookie"
+        },
+        "jquery.scrollTo": {
+            deps: ["jquery"],
+            exports: "jQuery.fn.scrollTo"
+        },
+        "jquery.flot": {
+            deps: ["jquery"],
+            exports: "jQuery.fn.plot"
         },
         "underscore": {
             exports: "_"

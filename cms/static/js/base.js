@@ -1,5 +1,5 @@
 require(["jquery", "underscore", "gettext", "js/views/feedback_notification", "js/views/feedback_prompt",
-         "jquery.ui", "jquery.timepicker", "jquery.leanmodal", "jquery.form"],
+         "jquery.ui", "jquery.timepicker", "jquery.leanModal", "jquery.form"],
     function($, _, gettext, NotificationView, PromptView) {
 
 var $body;

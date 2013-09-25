@@ -7,8 +7,9 @@ requirejs.config({
         "jquery.ui": "xmodule_js/common_static/js/vendor/jquery-ui.min",
         "jquery.form": "xmodule_js/common_static/js/vendor/jquery.form",
         "jquery.markitup": "xmodule_js/common_static/js/vendor/markitup/jquery.markitup",
-        "jquery.leanmodal": "xmodule_js/common_static/js/vendor/jquery.leanModal.min",
-        "jquery.smoothscroll": "xmodule_js/common_static/js/vendor/jquery.smooth-scroll.min",
+        "jquery.leanModal": "xmodule_js/common_static/js/vendor/jquery.leanModal.min",
+        "jquery.smoothScroll": "xmodule_js/common_static/js/vendor/jquery.smooth-scroll.min",
+        "jquery.scrollTo": "xmodule_js/common_static/js/vendor/jquery.scrollTo-1.4.2-min",
         "jquery.timepicker": "xmodule_js/common_static/js/vendor/timepicker/jquery.timepicker",
         "jquery.cookie": "xmodule_js/common_static/js/vendor/jquery.cookie",
         "jquery.qtip": "xmodule_js/common_static/js/vendor/jquery.qtip.min",
@@ -51,13 +52,17 @@ requirejs.config({
             deps: ["jquery"],
             exports: "jQuery.fn.markitup"
         },
-        "jquery.leanmodal": {
+        "jquery.leanModal": {
             deps: ["jquery"],
             exports: "jQuery.fn.leanModal"
         },
-        "jquery.smoothscroll": {
+        "jquery.smoothScroll": {
             deps: ["jquery"],
-            exports: "jQuery.fn.smoothscroll"
+            exports: "jQuery.fn.smoothScroll"
+        },
+        "jquery.scrollTo": {
+            deps: ["jquery"],
+            exports: "jQuery.fn.scrollTo"
         },
         "jquery.cookie": {
             deps: ["jquery"],

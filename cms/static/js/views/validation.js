@@ -1,4 +1,4 @@
-define(["backbone", "underscore", "jquery", "gettext", "js/views/feedback_notification", "js/views/feedback_alert", "jquery.smoothscroll"],
+define(["backbone", "underscore", "jquery", "gettext", "js/views/feedback_notification", "js/views/feedback_alert", "jquery.smoothScroll"],
     function(Backbone, _, $, gettext, NotificationView, AlertView) {
 
 var ValidatingView = Backbone.View.extend({
