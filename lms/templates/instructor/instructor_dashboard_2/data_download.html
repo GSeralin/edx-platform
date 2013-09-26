@@ -2,8 +2,13 @@
 <%page args="section_data"/>
 
 
-<h2>${_("Useful for larger courses")}</h2>
-<p><font color="${'red' if disable_buttons else 'none'}">${_("Note: disabled for larger courses")}</font></p>
+<h2>${_("Data Download")}</h2>
+<p><font color="${'red' if disable_buttons else 'none'}">
+  ${_("Note: these features are disabled for larger courses "
+      "(courses with more than {max_enrollment} students).").format(
+        max_enrollment=settings.MITX_FEATURES['MAX_ENROLLMENT_INSTR_BUTTONS']
+      )}
+</font></p>
 <br>
 
 <input type="button" name="list-profiles" value="${_("List enrolled students with profile information")}" data-endpoint="${ section_data['get_students_features_url'] }" class="${'is-disabled' if disable_buttons else ''}">

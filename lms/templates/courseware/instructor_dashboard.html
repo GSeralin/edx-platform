@@ -152,8 +152,13 @@ function goto( mode)
 
 
     <hr width="40%" style="align:left">
-    <h2>${_("Useful for smaller courses")}</h2>
-    <p><font color="${'red' if disable_buttons else 'none'}">${_("Note: disabled for larger courses")}</font></p>
+    <h2>${_("Grade Downloads")}</h2>
+    <p><font color="${'red' if disable_buttons else 'none'}">
+      ${_("Note: grade downloads are disabled for larger courses "
+          "(courses with more than {max_enrollment} students).").format(
+            max_enrollment=settings.MITX_FEATURES['MAX_ENROLLMENT_INSTR_BUTTONS']
+          )}
+    </font></p>
 
     <p>
     <a href="${reverse('gradebook', kwargs=dict(course_id=course.id))}" class="${'is-disabled' if disable_buttons else ''}">${_("Gradebook")}</a>
@@ -374,12 +379,14 @@ function goto( mode)
 %if modeflag.get('Enrollment'):
 
     <hr width="40%" style="align:left">
-    <h2>${_("Useful for smaller courses")}</h2>
-    <p>
-      <font color="${'red' if disable_buttons else 'none'}">
-        ${_("Note: disabled for larger courses")}
-      </font>
-    </p>
+    <h2>${_("Enrollment Data")}</h2>
+    <p><font color="${'red' if disable_buttons else 'none'}">
+      ${_("Note: enrollment data dumps are disabled for larger courses "
+          "(courses with more than {max_enrollment} students).").format(
+            max_enrollment=settings.MITX_FEATURES['MAX_ENROLLMENT_INSTR_BUTTONS']
+          )}
+    </font></p>
+    <br>
 
     <input type="submit" name="action" value="List enrolled students" class="${'is-disabled' if disable_buttons else ''}">
     <input type="submit" name="action" value="List students who may enroll but may not have yet signed up" class="${'is-disabled' if disable_buttons else ''}">
@@ -403,7 +410,7 @@ function goto( mode)
     <hr width="40%" style="align:left">
 
   %endif
-
+  <h2>${_("Batch Enrollment")}</h2>
   <p>${_("Enroll or un-enroll one or many students: enter emails, separated by new lines or commas;")}</p>
   <textarea rows="6" cols="70" name="multiple_students"></textarea>
   <p>
