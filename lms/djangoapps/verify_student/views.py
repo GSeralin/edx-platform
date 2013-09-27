@@ -52,6 +52,7 @@ class VerifyView(View):
             return redirect(
                 reverse('verify_student_verified',
                         kwargs={'course_id': course_id}) + "?upgrade={}".format(upgrade)
+            )
         elif CourseEnrollment.enrollment_mode_for_user(request.user, course_id) == 'verified':
             return redirect(reverse('dashboard'))
         else:
